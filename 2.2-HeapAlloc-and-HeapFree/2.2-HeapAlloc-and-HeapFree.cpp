@@ -2,10 +2,37 @@
 //
 
 #include <iostream>
+#include <Windows.h>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	char aString[] = "Hello, World!";
+	char* pString = NULL;
+	int slen = strlen(aString);
+
+	printf("aString [%s]\n", aString);
+
+	// 為 pString 動態配置記憶體
+	pString = (char*)HeapAlloc(
+		// GetProcessHeap: 取得目前程式所屬的 heap
+		GetProcessHeap(),
+		0,
+		slen + 1);
+
+	// 判斷被配置的 pString 接收是否為 NULL
+	if (NULL == pString) {
+		printf("HeapAlloc() error\n");
+		return 1;
+	}
+
+	// 將 aString 複製到已配置記憶體的 pString
+	strcpy_s(pString, slen + 1, aString);
+	printf("pString [%s]\n", pString);
+
+	// 釋放記憶體
+	HeapFree(GetProcessHeap(), 0, pString);
+
+	return 0;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
