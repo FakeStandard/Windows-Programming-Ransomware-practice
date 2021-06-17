@@ -12,3 +12,10 @@
 - CopyMemory
 - FillMemory
 - ZeroMemory
+
+3.1 Directory processing API
+- CopyFile
+- DeleteFile
+- MoveFile
+- GetFileAttributes
+- SetFileAttributes
