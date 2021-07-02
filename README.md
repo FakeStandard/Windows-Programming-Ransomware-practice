@@ -30,3 +30,16 @@
 - GetDriveType
 
 3.4 Full System Scan Example
+
+4.1 File Open, Create and Close
+- CreateFile
+- OpenFile
+- CloseHandle
+
+4.2 Read and Write File Contents
+
+4.3 File Related Information
+
+4.4 File Read and Write Location
+
+4.5 General Practice
